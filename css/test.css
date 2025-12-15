@@ -278,6 +278,20 @@
     flex: 1;
     width: auto;
     padding: 0 20px;
+    /* Alignment Fix: Ensure icon and text are perfectly centered */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Optical adjustment: Text sometimes renders slightly lower than the icon */
+#checkAnswer .btn-text,
+#nextTest .btn-text {
+    position: relative;
+}
+
+#checkAnswer .btn-text {
+    top: -2px;
 }
 
 /* Mobile responsiveness */

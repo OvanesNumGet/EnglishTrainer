@@ -1,5 +1,6 @@
 import { datasets } from '../data.js';
-import { state, getDatasetConfig, saveDatasetConfig } from '../state.js';
+// Added setCurrentDataset import
+import { state, getDatasetConfig, saveDatasetConfig, setCurrentDataset } from '../state.js';
 import { updateStats, updateControlsVisibility } from '../ui/index.js';
 import { showFlashcard, buildCardOrder } from '../flashcards/index.js';
 import { initTestMode, saveTestState } from '../test/index.js';
@@ -7,24 +8,29 @@ import { showToast } from '../utils.js';
 
 // ============ Data Logic ============
 export function loadDataset(name) {
+    // 1. Initialize Dataset & Mode
+    // This calculates forceSimpleMode and applies the class if needed,
+    // respecting the user's setting when not forced.
+    setCurrentDataset(name);
+
     state.verbs = datasets[name] || datasets['verbs'];
 
-    // 1. Simple Mode check
+    // 2. Update Label Text (UI only)
     if (name !== 'verbs') {
-        document.body.classList.add('simple-mode');
+        // Text mode (forced simple)
         const labelInf = document.getElementById('labelInfinitive');
         const testLabelInf = document.getElementById('testLabelInfinitive');
         if (labelInf) labelInf.textContent = 'Word';
         if (testLabelInf) testLabelInf.textContent = 'Word';
     } else {
-        document.body.classList.remove('simple-mode');
+        // Verbs mode (labels back to grammar terms)
         const labelInf = document.getElementById('labelInfinitive');
         const testLabelInf = document.getElementById('testLabelInfinitive');
         if (labelInf) labelInf.textContent = 'Infinitive';
         if (testLabelInf) testLabelInf.textContent = 'Infinitive';
     }
 
-    // 2. Reset Flashcards to All
+    // 3. Reset Flashcards to All
     state.currentCategory = 'all';
     document.querySelectorAll('[data-category]').forEach(c => c.classList.remove('active'));
     const catAll = document.querySelector('[data-category="all"]');
@@ -35,7 +41,7 @@ export function loadDataset(name) {
     const shuffleBtn = document.getElementById('shuffleCards');
     if (shuffleBtn) shuffleBtn.classList.remove('btn-toggle-active');
 
-    // 3. Load Saved Config for this Dataset (Direction + Category for Test)
+    // 4. Load Saved Config for this Dataset (Direction + Category for Test)
     const savedConfig = getDatasetConfig(name);
 
     // Apply Direction
@@ -57,11 +63,11 @@ export function loadDataset(name) {
 
     updateStats();
 
-    // 4. Initialize Views
+    // 5. Initialize Views
     buildCardOrder();
     showFlashcard(0);
 
-    // 5. Initialize Test (Automatic start/restore)
+    // 6. Initialize Test (Automatic start/restore)
     // Clear old test data first to be safe
     state.testVerbs = [];
     state.testOrder = []; // Clear order too
