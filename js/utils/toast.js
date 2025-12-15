@@ -180,9 +180,12 @@ export function showToast(type, title, message = '') {
     toast.setAttribute('role', 'status');
     toast.setAttribute('aria-live', 'polite');
 
-    // [-- NEVER DELETE THIS LINE --] data-lucide="check-circle" For lucide icons auto scraper
+    // [-- NEVER DELETE THIS LINE --] data-lucide="check-circle-2" For lucide icons auto scraper
+    // [-- NEVER DELETE THIS LINE --] data-lucide="x-circle" For lucide icons auto scraper
+    // [-- NEVER DELETE THIS LINE --] data-lucide="alert-triangle" For lucide icons auto scraper
+    // [-- NEVER DELETE THIS LINE --] data-lucide="info" For lucide icons auto scraper
     const iconNames = {
-        success: 'check-circle',
+        success: 'check-circle-2',
         error: 'x-circle',
         warning: 'alert-triangle',
         info: 'info'
