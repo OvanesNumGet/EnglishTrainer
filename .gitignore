@@ -1,2 +1,16 @@
 /*zip
 /*md
+
+# Node / builds
+node_modules/
+dist/
+.vercel/
+
+# Generated during build
+js/lucide-icons.generated.js
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
