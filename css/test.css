@@ -1,0 +1,299 @@
+.progress-bar {
+    height: 6px;
+    background: var(--bg-secondary);
+    border-radius: 3px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width 0.3s;
+}
+
+.test-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 16px;
+}
+
+.test-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.test-translation {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.test-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.label-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.label-dot.infinitive {
+    background: var(--infinitive-color);
+}
+
+.label-dot.past {
+    background: var(--past-color);
+}
+
+.label-dot.participle {
+    background: var(--participle-color);
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-field {
+    width: 100%;
+    padding: 14px 16px;
+    padding-right: 44px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: all 0.3s;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-light);
+}
+
+/* =========================================================
+   Live typing validation (gentle feedback for learning)
+   - live-progress: user is still on the right path (prefix matches)
+   - live-almost: likely tiny typo / missing space / extra letters
+   - live-mismatch: clearly diverged from any correct variant
+   - live-ok: full match already typed
+   These states MUST NOT be as aggressive as final .incorrect
+   ========================================================= */
+
+.input-field.live-progress {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.08);
+}
+
+.input-field.live-progress:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+.input-field.live-ok {
+    border-color: var(--success);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.10);
+}
+
+.input-field.live-ok:focus {
+    border-color: var(--success);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.14);
+}
+
+.input-field.live-almost {
+    border-color: var(--warning);
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.10);
+}
+
+.input-field.live-almost:focus {
+    border-color: var(--warning);
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.14);
+}
+
+.input-field.live-mismatch {
+    border-color: rgba(239, 68, 68, 0.85);
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.10);
+}
+
+.input-field.live-mismatch:focus {
+    border-color: var(--error);
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.14);
+}
+
+/* Small helper line under the input (does NOT reveal the correct answer) */
+.input-feedback {
+    min-height: 16px;
+    /* prevents layout jump */
+    font-size: 12px;
+    line-height: 1.2;
+    color: var(--text-tertiary);
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.input-feedback[data-state="ok"] {
+    color: var(--success);
+}
+
+.input-feedback[data-state="progress"] {
+    color: var(--text-tertiary);
+}
+
+.input-feedback[data-state="almost"] {
+    color: var(--warning);
+}
+
+.input-feedback[data-state="mismatch"] {
+    color: var(--error);
+}
+
+.input-field.correct {
+    border-color: var(--success);
+    background: var(--success-light);
+}
+
+.input-field.incorrect {
+    border-color: var(--error);
+    background: var(--error-light);
+    animation: shake 0.5s ease-in-out;
+}
+
+.input-field.skipped {
+    border-color: var(--warning);
+    background: var(--warning-light);
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-8px);
+    }
+
+    40% {
+        transform: translateX(8px);
+    }
+
+    60% {
+        transform: translateX(-8px);
+    }
+
+    80% {
+        transform: translateX(8px);
+    }
+}
+
+.btn-hint {
+    position: absolute;
+    right: 8px;
+    background: var(--bg-secondary);
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-hint:hover {
+    background: var(--warning-light);
+    color: var(--warning);
+}
+
+.correct-answer {
+    font-size: 12px;
+    color: var(--success);
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.skipped-note {
+    font-size: 12px;
+    color: var(--warning);
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.test-controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    gap: 10px;
+    padding: 16px 20px;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border);
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 100;
+}
+
+.test-controls .btn {
+    flex: 0 0 46px;
+    width: 46px;
+    min-width: 46px;
+    padding: 0;
+}
+
+#checkAnswer,
+#startTest,
+#nextTest {
+    flex: 1;
+    width: auto;
+    padding: 0 20px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .test-controls {
+        flex-wrap: wrap;
+        padding: 12px 16px;
+    }
+
+    .test-controls .btn {
+        min-width: 46px;
+        padding: 0;
+    }
+
+    #checkAnswer,
+    #startTest {
+        padding: 0 20px;
+    }
+}

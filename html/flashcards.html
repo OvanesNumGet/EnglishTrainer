@@ -1,0 +1,74 @@
+<div class="category-selector focus-hide">
+    <div class="category-chip active" data-category="all">
+        Все
+        <span class="chip-count" id="allCount">0</span>
+    </div>
+    <div class="category-chip" data-category="hard">
+        Сложные
+        <span class="chip-count" id="hardChipCount">0</span>
+    </div>
+    <div class="category-chip" data-category="progress">
+        В процессе
+        <span class="chip-count" id="progressChipCount">0</span>
+    </div>
+</div>
+
+<div class="flashcard-container">
+    <div class="flashcard" id="flashcard" tabindex="0">
+        <!-- Front -->
+        <div class="flashcard-face flashcard-front">
+            <div class="verb-status" id="verbStatus"></div>
+            <div class="flashcard-translation" id="flashcardTranslation">Нажмите для начала</div>
+            <div class="flashcard-hint">
+                <i data-lucide="mouse-pointer-click" style="width:16px;height:16px"></i>
+                Нажмите для ответа
+            </div>
+        </div>
+        <!-- Back -->
+        <div class="flashcard-face flashcard-back">
+            <div class="verb-english" id="verbEnglish">go</div>
+            <div class="flashcard-forms">
+                <div class="form-row">
+                    <span class="form-label" id="labelInfinitive">Infinitive</span>
+                    <span class="form-value infinitive">
+                        <span id="infinitive">go</span>
+                        <button class="btn-speak" data-text-id="infinitive">
+                            <i data-lucide="volume-2" style="width:18px;height:18px"></i>
+                        </button>
+                    </span>
+                </div>
+                <div class="form-row">
+                    <span class="form-label">Past Simple</span>
+                    <span class="form-value past">
+                        <span id="pastSimple">went</span>
+                        <button class="btn-speak" data-text-id="pastSimple">
+                            <i data-lucide="volume-2" style="width:18px;height:18px"></i>
+                        </button>
+                    </span>
+                </div>
+                <div class="form-row">
+                    <span class="form-label">Past Participle</span>
+                    <span class="form-value participle">
+                        <span id="pastParticiple">gone</span>
+                        <button class="btn-speak" data-text-id="pastParticiple">
+                            <i data-lucide="volume-2" style="width:18px;height:18px"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <div class="example-sentence" id="exampleSentence">
+                <i data-lucide="message-square" class="example-icon" style="width:18px;height:18px"></i>
+                <span>I <strong>went</strong> to school yesterday.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="card-counter" id="cardCounter">1 / 90</div>
+
+
+<div class="swipe-hint focus-hide">
+    <i data-lucide="move-horizontal" style="width:16px;height:16px"></i>
+    Свайпните или используйте стрелки
+</div>

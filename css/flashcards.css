@@ -1,0 +1,211 @@
+/* Flashcard 3D Flip */
+.flashcard-container {
+    perspective: 1000px;
+    margin-bottom: 16px;
+    min-height: 320px;
+}
+
+.flashcard {
+    position: relative;
+    width: 100%;
+    min-height: 320px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+}
+
+.flashcard.flipped {
+    transform: rotateY(180deg);
+}
+
+.flashcard-face {
+    position: absolute;
+    width: 100%;
+    min-height: 320px;
+    backface-visibility: hidden;
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flashcard-back {
+    transform: rotateY(180deg);
+}
+
+.verb-status {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--not-started);
+}
+
+.verb-status.learned { background: var(--learned); }
+.verb-status.progress { background: var(--progress); }
+.verb-status.hard { background: var(--hard); }
+.verb-status.not-started { background: var(--not-started); }
+
+.flashcard-translation {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.flashcard-hint {
+    color: var(--text-secondary);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.verb-english {
+    font-family: 'Merriweather', serif;
+    font-size: 42px;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.flashcard-forms {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.form-row:hover {
+    transform: translateX(4px);
+}
+
+.form-row:active {
+    transform: scale(0.98);
+}
+
+.form-label {
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.form-value {
+    font-weight: 600;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-value.infinitive { color: var(--infinitive-color); }
+.form-value.past { color: var(--past-color); }
+.form-value.participle { color: var(--participle-color); }
+
+.btn-speak {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: var(--text-secondary);
+    transition: color 0.2s, transform 0.2s;
+    display: flex;
+}
+
+.btn-speak:hover {
+    color: var(--accent);
+    transform: scale(1.2);
+}
+
+/* Example sentence */
+.example-sentence {
+    margin-top: 20px;
+    padding: 16px;
+    background: var(--accent-light);
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    border-left: 3px solid var(--accent);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.example-sentence strong {
+    color: var(--accent);
+}
+
+.example-icon {
+    flex-shrink: 0;
+    color: var(--accent);
+}
+
+/* Fixed Controls */
+.flashcard-controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    gap: 10px;
+    padding: 16px 20px;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border);
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 100;
+}
+
+/* Helpers */
+.swipe-hint {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 13px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.card-counter {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 13px;
+    margin-bottom: 32px;
+    font-weight: 500;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .flashcard-translation {
+        font-size: 26px;
+    }
+
+    .verb-english {
+        font-size: 32px;
+    }
+
+    .flashcard-controls {
+        padding: 12px 16px;
+    }
+}

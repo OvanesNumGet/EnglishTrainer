@@ -1,0 +1,172 @@
+/* =========================================================
+   Dropbox (Custom Dropdown) + Item
+   ========================================================= */
+
+.dropbox {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    min-width: 0;
+    /* allow inner text to ellipsis when constrained */
+}
+
+.dropbox-native {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.dropbox-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    border-radius: 12px;
+    padding: 8px 10px;
+    transition: background 0.2s, transform 0.2s;
+
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+    /* important for flex ellipsis */
+}
+
+.dropbox-trigger:hover {
+    background: var(--accent-light);
+}
+
+.dropbox-trigger:active {
+    transform: scale(0.98);
+}
+
+.dropbox-trigger-text {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--accent);
+
+    /* Fix vertical glyph clipping (top/bottom) while keeping ellipsis logic */
+    display: block;
+    line-height: 1.25;
+    padding-block: 1px;
+
+    text-align: left;
+
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100%;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dropbox-trigger-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--text-secondary);
+    flex: 0 0 auto;
+    transition: transform 0.2s ease;
+}
+
+.dropbox.open .dropbox-trigger-icon {
+    transform: rotate(180deg);
+}
+
+.dropbox-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    min-width: min(320px, calc(100vw - 24px));
+    max-width: min(520px, calc(100vw - 24px));
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    padding: 6px;
+
+    /* Ensure dropdown is above header/tabs/chips, but still below modal (5000) */
+    z-index: 3500;
+
+    display: none;
+}
+
+.dropbox.open .dropbox-menu {
+    display: block;
+}
+
+.dropbox-item {
+    width: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-primary);
+    transition: background 0.15s ease, transform 0.15s ease;
+    text-align: left;
+}
+
+.dropbox-item:hover {
+    background: var(--bg-secondary);
+}
+
+.dropbox-item:active {
+    transform: scale(0.99);
+}
+
+.dropbox-item[aria-selected="true"] {
+    background: var(--accent-light);
+}
+
+.dropbox-item-check {
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex: 0 0 18px;
+    opacity: 0;
+}
+
+.dropbox-item[aria-selected="true"] .dropbox-item-check {
+    opacity: 1;
+}
+
+.dropbox-item-label {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.dropbox-item-sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+    font-weight: 500;
+}
+
+.dropbox-item-textcol {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.dropbox-item-label,
+.dropbox-item-sub {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

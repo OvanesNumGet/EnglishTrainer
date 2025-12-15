@@ -1,0 +1,384 @@
+<div class="settings-screen" id="settingsScreen">
+    <div class="settings-header">
+        <div class="settings-title">Настройки</div>
+        <button class="btn-icon" id="closeSettings">
+            <i data-lucide="x" style="width:24px;height:24px"></i>
+        </button>
+    </div>
+
+    <div class="settings-content">
+
+        <!-- Statistics Link -->
+        <div class="settings-group-title">Прогресс</div>
+        <div class="settings-group">
+            <button class="settings-item" id="openStats">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-blue"><i data-lucide="bar-chart-2"
+                            style="width:20px;height:20px"></i></div>
+                    <span>Статистика</span>
+                </div>
+                <div class="settings-item-right">
+                    <i data-lucide="chevron-right" style="width:20px;height:20px"></i>
+                </div>
+            </button>
+        </div>
+
+        <!-- Daily Goal -->
+        <div class="settings-group-title">Цели</div>
+        <div class="settings-group">
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-green"><i data-lucide="target" style="width:20px;height:20px"></i>
+                    </div>
+                    <div class="settings-text-col">
+                        <span>Ежедневная цель</span>
+                        <small>Слов в день</small>
+                    </div>
+                </div>
+                <div class="settings-item-right">
+                    <div class="segment-control">
+                        <button class="segment-btn" data-goal="20">20</button>
+                        <button class="segment-btn" data-goal="30">30</button>
+                        <button class="segment-btn" data-goal="50">50</button>
+                        <button class="segment-btn" data-goal="70">70</button>
+                        <button class="segment-btn" data-goal="100">100</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learning Options -->
+        <div class="settings-group-title">Обучение</div>
+        <div class="settings-group">
+            <!-- Simple Mode -->
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-blue"><i data-lucide="minimize-2" style="width:20px;height:20px"></i>
+                    </div>
+                    <div class="settings-text-col">
+                        <span>Простой режим</span>
+                        <small>Только инфинитив в глаголах</small>
+                    </div>
+                </div>
+                <div class="settings-item-right">
+                    <label class="switch-toggle">
+                        <input type="checkbox" id="settingSimpleMode">
+                        <span class="slider-toggle"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Auto Advance -->
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-purple"><i data-lucide="skip-forward"
+                            style="width:20px;height:20px"></i>
+                    </div>
+                    <div class="settings-text-col">
+                        <span>Авто-переход</span>
+                        <small>Переход к следующему после правильного ответа</small>
+                    </div>
+                </div>
+                <div class="settings-item-right">
+                    <label class="switch-toggle">
+                        <input type="checkbox" id="settingAutoAdvance">
+                        <span class="slider-toggle"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Live highlight + auto-check -->
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-green">
+                        <i data-lucide="zap" style="width:20px;height:20px"></i>
+                    </div>
+                    <div class="settings-text-col">
+                        <span>Подсветка и автопроверка</span>
+                        <small>Подсвечивать ввод и проверять автоматически</small>
+                    </div>
+                </div>
+                <div class="settings-item-right">
+                    <label class="switch-toggle">
+                        <input type="checkbox" id="settingLiveCheck" checked>
+                        <span class="slider-toggle"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Show Hints -->
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-orange"><i data-lucide="lightbulb"
+                            style="width:20px;height:20px"></i>
+                    </div>
+                    <div class="settings-text-col">
+                        <span>Показывать подсказки</span>
+                        <small>Кнопки подсказок в тестах</small>
+                    </div>
+                </div>
+                <div class="settings-item-right">
+                    <label class="switch-toggle">
+                        <input type="checkbox" id="settingShowHints" checked>
+                        <span class="slider-toggle"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sound Options -->
+        <div class="settings-group-title">Звук</div>
+        <div class="settings-group">
+            <!-- Auto Speak -->
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-purple"><i data-lucide="volume-2" style="width:20px;height:20px"></i>
+                    </div>
+                    <div class="settings-text-col">
+                        <span>Авто-произношение</span>
+                        <small>При перевороте карточки</small>
+                    </div>
+                </div>
+                <div class="settings-item-right">
+                    <label class="switch-toggle">
+                        <input type="checkbox" id="settingAutoSpeak">
+                        <span class="slider-toggle"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Sound Effects -->
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-pink"><i data-lucide="bell-ring" style="width:20px;height:20px"></i>
+                    </div>
+                    <div class="settings-text-col">
+                        <span>Звуковые эффекты</span>
+                        <small>Звуки при правильных/неправильных ответах</small>
+                    </div>
+                </div>
+                <div class="settings-item-right">
+                    <label class="switch-toggle">
+                        <input type="checkbox" id="settingSoundEffects">
+                        <span class="slider-toggle"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Speech Rate -->
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-green"><i data-lucide="circle-gauge"
+                            style="width:20px;height:20px"></i>
+                    </div>
+                    <span>Скорость речи</span>
+                </div>
+                <div class="settings-item-right">
+                    <div class="segment-control">
+                        <button class="segment-btn" data-rate="0.6">0.6</button>
+                        <button class="segment-btn" data-rate="0.8">0.8</button>
+                        <button class="segment-btn" data-rate="1.0">1.0</button>
+                        <button class="segment-btn" data-rate="1.2">1.2</button>
+                        <button class="segment-btn" data-rate="1.4">1.4</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interface Options -->
+        <div class="settings-group-title">Интерфейс</div>
+        <div class="settings-group">
+            <!-- Theme -->
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-orange"><i data-lucide="palette" style="width:20px;height:20px"></i>
+                    </div>
+                    <span>Тема оформления</span>
+                </div>
+                <div class="settings-item-right">
+                    <div class="segment-control theme-control">
+                        <button class="segment-btn theme-btn" data-theme-val="light"><i data-lucide="sun"
+                                style="width:14px;height:14px"></i></button>
+                        <button class="segment-btn theme-btn" data-theme-val="system">Auto</button>
+                        <button class="segment-btn theme-btn" data-theme-val="dark"><i data-lucide="moon"
+                                style="width:14px;height:14px"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Animation Speed -->
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-blue"><i data-lucide="wind" style="width:20px;height:20px"></i>
+                    </div>
+                    <span>Скорость анимаций</span>
+                </div>
+                <div class="settings-item-right">
+                    <div class="segment-control">
+                        <button class="segment-btn" data-anim-speed="slow">Медл.</button>
+                        <button class="segment-btn" data-anim-speed="normal">Норм.</button>
+                        <button class="segment-btn" data-anim-speed="fast">Быстр.</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Haptics -->
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-pink"><i data-lucide="smartphone" style="width:20px;height:20px"></i>
+                    </div>
+                    <span>Вибрация</span>
+                </div>
+                <div class="settings-item-right">
+                    <label class="switch-toggle">
+                        <input type="checkbox" id="settingHaptics">
+                        <span class="slider-toggle"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Reduce Motion -->
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-gray"><i data-lucide="star-off" style="width:20px;height:20px"></i>
+                    </div>
+                    <span>Без анимаций</span>
+                </div>
+                <div class="settings-item-right">
+                    <label class="switch-toggle">
+                        <input type="checkbox" id="settingReduceMotion">
+                        <span class="slider-toggle"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Confetti -->
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-purple"><i data-lucide="party-popper"
+                            style="width:20px;height:20px"></i>
+                    </div>
+                    <div class="settings-text-col">
+                        <span>Конфетти</span>
+                        <small>Праздничный эффект при достижениях</small>
+                    </div>
+                </div>
+                <div class="settings-item-right">
+                    <label class="switch-toggle">
+                        <input type="checkbox" id="settingConfetti" checked>
+                        <span class="slider-toggle"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Zone -->
+        <div class="settings-group-title">Данные</div>
+        <div class="settings-group">
+            <button class="settings-item" id="exportDataBtn">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-blue"><i data-lucide="download" style="width:20px;height:20px"></i>
+                    </div>
+                    <div class="settings-text-col">
+                        <span>Экспорт данных</span>
+                        <small>Скачать резервную копию</small>
+                    </div>
+                </div>
+                <div class="settings-item-right">
+                    <i data-lucide="chevron-right" style="width:20px;height:20px"></i>
+                </div>
+            </button>
+
+            <button class="settings-item" id="importDataBtn" data-confirm="true" data-confirm-variant="danger"
+                data-confirm-title="Импортировать данные?"
+                data-confirm-message="Текущий прогресс и настройки будут полностью заменены данными из файла. Это действие нельзя отменить."
+                data-confirm-confirm="Импортировать" data-confirm-cancel="Отмена">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-purple">
+                        <i data-lucide="upload" style="width:20px;height:20px"></i>
+                    </div>
+                    <div class="settings-text-col">
+                        <span>Импорт данных</span>
+                        <small>Восстановить прогресс и настройки</small>
+                    </div>
+                </div>
+                <div class="settings-item-right">
+                    <i data-lucide="chevron-right" style="width:20px;height:20px"></i>
+                </div>
+            </button>
+
+            <button class="settings-item" id="openTopicReset">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-red"><i data-lucide="eraser" style="width:20px;height:20px"></i>
+                    </div>
+                    <div class="settings-text-col">
+                        <span>Сброс прогресса темы</span>
+                        <small>Удалить прогресс только в одной теме</small>
+                    </div>
+                </div>
+                <div class="settings-item-right">
+                    <i data-lucide="chevron-right" style="width:20px;height:20px"></i>
+                </div>
+            </button>
+
+            <button class="settings-item danger" id="resetDataBtn" data-confirm="true" data-confirm-variant="danger"
+                data-confirm-title="Сбросить весь прогресс?"
+                data-confirm-message="Будут очищены XP, серия и статусы слов во всех темах. Настройки интерфейса сохранятся."
+                data-confirm-confirm="Сбросить" data-confirm-cancel="Отмена">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-red"><i data-lucide="trash-2" style="width:20px;height:20px"></i>
+                    </div>
+                    <span>Сбросить весь прогресс</span>
+                </div>
+            </button>
+        </div>
+
+        <!-- Version Info -->
+        <div class="settings-footer">
+            <p>English Words Trainer v2.7</p>
+            <p>Made with ❤️ for learning</p>
+        </div>
+    </div>
+
+    <!-- Sub-page: Statistics -->
+    <div class="sub-page" id="statsSubPage">
+        <div class="settings-header">
+            <div class="settings-title">
+                <button class="btn-icon" id="backToSettings" style="margin-left: -12px; margin-right: 4px;">
+                    <i data-lucide="chevron-left" style="width:24px;height:24px"></i>
+                </button>
+                Статистика
+            </div>
+        </div>
+        <div class="sub-page-content" id="statsContentPlaceholder">
+            <!-- Stats content will be injected here from stats.html -->
+        </div>
+    </div>
+
+    <!-- Sub-page: Topic Reset -->
+    <div class="sub-page" id="topicResetSubPage">
+        <div class="settings-header">
+            <div class="settings-title">
+                <button class="btn-icon" id="backFromTopicReset" style="margin-left: -12px; margin-right: 4px;">
+                    <i data-lucide="chevron-left" style="width:24px;height:24px"></i>
+                </button>
+                Управление прогрессом
+            </div>
+        </div>
+
+        <div class="sub-page-content">
+            <div class="settings-group-title">Сброс прогресса темы</div>
+
+            <div class="settings-group" id="resetTopicsList">
+                <!-- список тем будет сгенерирован JS -->
+            </div>
+
+            <div class="settings-group" style="margin-top: 14px;">
+                <div style="padding: 14px 16px; color: var(--text-secondary); font-size: 13px; line-height: 1.45;">
+                    Здесь можно сбросить прогресс только в выбранной теме. XP/серия и настройки интерфейса не
+                    затрагиваются.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

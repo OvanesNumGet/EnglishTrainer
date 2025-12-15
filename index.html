@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>English Words Trainer</title>
+
+    <!-- Basic SEO -->
+    <meta name="description"
+        content="Тренажёр неправильных глаголов: карточки, тесты, статистика и прогресс. Работает без интернета.">
+    <meta name="application-name" content="English Words Trainer">
+    <meta name="robots" content="index,follow">
+
+    <!-- PWA / Mobile -->
+    <meta name="theme-color" content="#fafafa">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="EnglishTrainer">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <!-- Icons -->
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+    <link rel="mask-icon" href="icons/icon.svg" color="#6366f1">
+    <!-- Лучше сделать отдельный PNG 180x180 для iOS, но SVG часто тоже работает -->
+    <link rel="apple-touch-icon" href="icons/icon.svg">
+
+    <!-- Open Graph (Facebook, Telegram, VK и многие другие) -->
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="English Words Trainer">
+    <meta property="og:title" content="English Words Trainer">
+    <meta property="og:description"
+        content="Тренажёр неправильных глаголов: карточки, тесты, статистика и прогресс. Работает без интернета.">
+    <!-- ВАЖНО: для корректного превью при шаринге обычно нужен абсолютный URL -->
+    <!-- Пример: https://your-domain.example/icons/preview.png -->
+    <meta property="og:image" content="icons/icon.svg">
+    <meta property="og:image:type" content="image/svg+xml">
+
+    <!-- Можно добавить, если есть домен (лучше абсолютный URL):
+         <link rel="canonical" href="https://your-domain.example/">
+         <meta property="og:url" content="https://your-domain.example/"> -->
+
+    <!-- Twitter Cards -->
+    <!-- Если будет PNG/JPG превью, можно поставить summary_large_image -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="English Words Trainer">
+    <meta name="twitter:description"
+        content="Тренажёр неправильных глаголов: карточки, тесты, статистика и прогресс. Работает без интернета.">
+    <meta name="twitter:image" content="icons/icon.svg">
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="toast-container" id="toastContainer"></div>
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="container">
+        <!-- Containers for dynamic content -->
+        <div id="header-container"></div>
+        <div id="tabs-container"></div>
+
+        <div class="content">
+            <!-- Settings Overlay -->
+            <div id="settings-container"></div>
+
+            <!-- Flashcards Screen -->
+            <div class="screen active" id="flashcards">
+                <!-- Content loaded via JS -->
+            </div>
+
+            <!-- Test Screen -->
+            <div class="screen" id="test">
+                <!-- Content loaded via JS -->
+            </div>
+
+            <!-- Controls container -->
+            <div id="controls-container"></div>
+        </div>
+    </div>
+
+    <!-- Lucide локально (есть в ./js/lucide.min.js и кешируется sw.js) -->
+    <script src="js/lucide.min.js"></script>
+
+    <!-- Using ES Modules for structured JS -->
+    <script type="module" src="js/main.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
+</body>
+
+</html>

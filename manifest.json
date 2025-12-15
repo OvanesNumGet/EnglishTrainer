@@ -1,0 +1,18 @@
+{
+    "name": "English Words Trainer",
+    "short_name": "EnglishTrainer",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#fafafa",
+    "theme_color": "#6366f1",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "icons/icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}

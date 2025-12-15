@@ -1,0 +1,121 @@
+/* =========================================================
+   Confirm Dialog (modal)
+   ========================================================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 5000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease;
+
+    /* Prevent background scroll / overscroll on mobile while modal is visible */
+    overscroll-behavior: contain;
+    touch-action: none;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* While closing (fade-out), keep catching pointer events to prevent click-through */
+.modal-overlay.closing {
+    pointer-events: auto;
+}
+
+.modal {
+    width: 100%;
+    max-width: 520px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    border-radius: 20px;
+    overflow: hidden;
+
+    transform: translateY(8px) scale(0.98);
+    transition: transform 180ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.modal-overlay.active .modal {
+    transform: translateY(0) scale(1);
+}
+
+.modal-header {
+    padding: 16px 16px 10px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.modal-title {
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--text-primary);
+}
+
+.modal-close {
+    background: var(--bg-secondary);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: background 0.2s;
+    flex: 0 0 auto;
+}
+
+.modal-close:hover {
+    background: var(--border);
+}
+
+.modal-body {
+    padding: 12px 16px 16px 16px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.modal-actions {
+    padding: 14px 16px 16px 16px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 10px;
+}
+
+.modal-actions .btn {
+    flex: 1;
+}
+
+/* Extra safety: while modal is open, disable pointer events on the app layer */
+body.modal-open .container,
+body.modal-open #toastContainer {
+    pointer-events: none;
+}
+
+/* But modal overlay must remain interactive */
+body.modal-open .modal-overlay,
+body.modal-open .modal-overlay * {
+    pointer-events: auto;
+}
+
+body.reduce-motion .modal-overlay,
+body.reduce-motion .modal {
+    transition: none !important;
+}

@@ -1,0 +1,47 @@
+/* Header */
+.header {
+    display: flex;
+    justify-content: flex-start;
+    /* allow actions to stick to the right via margin-left:auto */
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Make dropdown area shrinkable so header-actions never gets pushed out */
+.header .dropbox {
+    flex: 1 1 auto;
+    min-width: 0;
+    /* critical for ellipsis within flex items */
+}
+
+.title {
+    font-size: 22px;
+    font-weight: 700;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.title-select {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    max-width: 100%;
+}
+
+/* Header actions must always keep their size and position */
+.header-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+    flex: 0 0 auto;
+    flex-shrink: 0;
+}

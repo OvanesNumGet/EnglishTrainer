@@ -1,0 +1,121 @@
+/* Buttons */
+.btn-icon {
+    background: var(--bg-secondary);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 12px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-icon:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+    transform: scale(1.05);
+}
+
+.btn-icon.danger:hover {
+    background: var(--error-light);
+    color: var(--error);
+}
+
+.btn-icon.active {
+    background: var(--accent);
+    color: white;
+}
+
+.btn {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 46px;
+    line-height: 1;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+    flex: 2;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.btn-secondary {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.btn-secondary:hover {
+    background: var(--border);
+}
+
+.btn-toggle-active {
+    background: var(--accent);
+    color: white;
+}
+
+/* Danger button for confirm dialogs */
+.btn-danger {
+    background: var(--error);
+    color: white;
+}
+
+.btn-danger:hover {
+    filter: brightness(0.95);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
+}
+
+.btn-danger-secondary {
+    background: var(--error-light);
+    color: var(--error);
+}
+
+.btn-danger-secondary:hover {
+    background: rgba(239, 68, 68, 0.18);
+}
+
+/* Reset Button Container - pushed to bottom of flex container */
+.reset-container {
+    text-align: center;
+    margin-top: auto;
+    /* Push to bottom of available space */
+    padding-top: 15em;
+    /* Minimum gap from content above */
+    padding-bottom: 10px;
+}
+
+.reset-container .btn-reset-dataset {
+    background: var(--bg-card);
+    border: 1px solid var(--error-light);
+    border-radius: 20px;
+    color: var(--error);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, background 0.2s;
+}
+
+.reset-container .btn-reset-dataset:active {
+    transform: scale(0.95);
+    background: var(--error-light);
+}

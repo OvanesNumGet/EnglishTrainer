@@ -1,0 +1,8 @@
+@import 'variables.css';
+@import 'base.css';
+@import 'components.css';
+@import 'flashcards.css';
+@import 'test.css';
+@import 'stats.css';
+@import 'settings.css';
+@import 'focus-mode.css';

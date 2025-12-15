@@ -1,0 +1,108 @@
+<div class="category-selector focus-hide">
+    <div class="category-chip active" data-test-category="all">
+        Все
+        <span class="chip-count" id="testAllCount">0</span>
+    </div>
+    <div class="category-chip" data-test-category="hard">
+        Сложные
+        <span class="chip-count" id="testHardCount">0</span>
+    </div>
+    <div class="category-chip" data-test-category="progress">
+        В процессе
+        <span class="chip-count" id="testProgressCount">0</span>
+    </div>
+</div>
+
+<div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+</div>
+
+<!-- Added ID for animation -->
+<div class="test-card" id="testCardContainer">
+    <div class="test-header">
+        <div class="test-translation" id="testTranslation">...</div>
+        <button class="btn-speak" id="testSpeak">
+            <i data-lucide="volume-2" style="width:24px;height:24px"></i>
+        </button>
+    </div>
+    <div class="test-inputs">
+        <div class="input-group">
+            <label class="input-label">
+                <span class="label-dot infinitive"></span>
+                <span id="testLabelInfinitive">Infinitive</span>
+            </label>
+            <div class="input-wrapper">
+                <input type="text" class="input-field" id="testInfinitive" placeholder="..." autocomplete="off"
+                    autocomplete="nope" spellcheck="false" autocapitalize="none" autocorrect="off" inputmode="text"
+                    data-lpignore="true" data-1p-ignore data-form-type="other" data-bwignore aria-autocomplete="none">
+                <button class="btn-hint" data-form="infinitive" title="Подсказка">
+                    <i data-lucide="help-circle" style="width:16px;height:16px"></i>
+                </button>
+            </div>
+            <div class="input-feedback" id="feedbackInfinitive" aria-live="polite"></div>
+            <div class="correct-answer" id="correctInfinitive"></div>
+        </div>
+
+        <div class="input-group">
+            <label class="input-label">
+                <span class="label-dot past"></span>
+                Past Simple
+            </label>
+            <div class="input-wrapper">
+                <input type="text" class="input-field" id="testPastSimple" placeholder="..." autocomplete="off"
+                    autocomplete="nope" spellcheck="false" autocapitalize="none" autocorrect="off" inputmode="text"
+                    data-lpignore="true" data-1p-ignore data-form-type="other" data-bwignore aria-autocomplete="none">
+                <button class="btn-hint" data-form="pastSimple" title="Подсказка">
+                    <i data-lucide="help-circle" style="width:16px;height:16px"></i>
+                </button>
+            </div>
+            <div class="input-feedback" id="feedbackPastSimple" aria-live="polite"></div>
+            <div class="correct-answer" id="correctPastSimple"></div>
+        </div>
+
+        <div class="input-group">
+            <label class="input-label">
+                <span class="label-dot participle"></span>
+                Past Participle
+            </label>
+            <div class="input-wrapper">
+                <input type="text" class="input-field" id="testPastParticiple" placeholder="..." autocomplete="off"
+                    autocomplete="nope" spellcheck="false" autocapitalize="none" autocorrect="off" inputmode="text"
+                    data-lpignore="true" data-1p-ignore data-form-type="other" data-bwignore aria-autocomplete="none">
+                <button class="btn-hint" data-form="pastParticiple" title="Подсказка">
+                    <i data-lucide="help-circle" style="width:16px;height:16px"></i>
+                </button>
+            </div>
+            <div class="input-feedback" id="feedbackPastParticiple" aria-live="polite"></div>
+            <div class="correct-answer" id="correctPastParticiple"></div>
+        </div>
+    </div>
+</div>
+
+<div class="test-controls">
+    <button class="btn btn-secondary" id="prevTest">
+        <i data-lucide="chevron-left" style="width:18px;height:18px"></i>
+    </button>
+    <button class="btn btn-secondary" id="shuffleTest">
+        <i data-lucide="shuffle" style="width:18px;height:18px"></i>
+    </button>
+
+    <button class="btn btn-secondary" id="focusModeToggleTest" title="Режим фокусировки" aria-pressed="false"
+        aria-label="Включить режим фокусировки">
+        <i data-lucide="maximize-2" style="width:18px;height:18px"></i>
+    </button>
+
+    <button class="btn btn-secondary" id="skipTest" title="Далее без проверки">
+        <i data-lucide="chevron-right" style="width:18px;height:18px"></i>
+    </button>
+
+    <button class="btn btn-primary" id="checkAnswer" aria-label="Проверить" title="Проверить">
+        <i data-lucide="check-line" style="width:18px;height:18px"></i>
+        <span class="btn-text">Проверить</span>
+    </button>
+
+    <button class="btn btn-primary" id="nextTest" style="display:none;" aria-label="Далее" title="Далее">
+        <span class="btn-text">Далее</span>
+        <i data-lucide="chevron-right" style="width:18px;height:18px"></i>
+    </button>
+</div>

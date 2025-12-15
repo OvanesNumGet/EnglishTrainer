@@ -1,0 +1,266 @@
+<!-- Daily Goal Section -->
+<div class="stats-section">
+    <div class="stats-section-header">
+        <span class="stats-section-title">Ежедневная цель</span>
+    </div>
+
+    <div class="stats-grid">
+        <div class="daily-goal-card">
+            <div class="daily-goal-header">
+                <span class="daily-goal-title">Прогресс за день</span>
+                <i data-lucide="target" class="daily-goal-icon"></i>
+            </div>
+            <div class="daily-goal-progress">
+                <div class="daily-goal-bar-bg">
+                    <div class="daily-goal-bar-fill" id="dailyGoalBar" style="width: 0%"></div>
+                </div>
+                <div class="daily-goal-text">
+                    <span class="daily-goal-current"><span id="dailyGoalCurrent">0</span> слов</span>
+                    <span class="daily-goal-target">Цель: <span id="dailyGoalTarget">10</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Progress Section -->
+<div class="stats-section">
+    <div class="stats-section-header">
+        <span class="stats-section-title">Общий прогресс</span>
+    </div>
+
+    <div class="stats-featured-card">
+        <div class="progress-ring-container" aria-label="Общий прогресс изучения">
+            <!-- Pie chart -->
+            <svg class="progress-pie" viewBox="0 0 120 120" role="img" aria-label="Круговая диаграмма прогресса">
+                <g id="progressPieSlices"></g>
+                <circle class="progress-pie-outline" cx="60" cy="60" r="59"></circle>
+            </svg>
+
+            <div class="progress-ring-center">
+                <div class="progress-ring-value" id="overallLearnedPercent">0%</div>
+                <div class="progress-ring-label">выучено</div>
+            </div>
+        </div>
+
+        <div class="stats-featured-info">
+            <div class="stats-featured-title">Ваш прогресс</div>
+            <div class="stats-featured-subtitle">
+                Всего слов во всех темах: <strong id="totalCount">0</strong>
+            </div>
+
+            <div class="stats-mini-row" aria-label="Быстрые показатели">
+                <div class="stats-mini-item">
+                    <div class="stats-mini-dot learned"></div>
+                    <span class="stats-mini-text">
+                        <span class="stats-mini-value" id="learnedCount">0</span> выучено
+                    </span>
+                </div>
+                <div class="stats-mini-item">
+                    <div class="stats-mini-dot progress"></div>
+                    <span class="stats-mini-text">
+                        <span class="stats-mini-value" id="progressMiniCount">0</span> в процессе
+                    </span>
+                </div>
+                <div class="stats-mini-item">
+                    <div class="stats-mini-dot hard"></div>
+                    <span class="stats-mini-text">
+                        <span class="stats-mini-value" id="hardMiniCount">0</span> сложные
+                    </span>
+                </div>
+                <div class="stats-mini-item">
+                    <div class="stats-mini-dot not-started"></div>
+                    <span class="stats-mini-text">
+                        <span class="stats-mini-value" id="notStartedMiniCount">0</span> не начато
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Performance Chart Section -->
+<div class="stats-section">
+    <div class="stats-section-header">
+        <span class="stats-section-title">Успеваемость</span>
+    </div>
+
+    <div class="performance-card">
+        <div class="performance-header">
+            <div class="performance-title">Точность ответов</div>
+
+            <div class="performance-range segment-control" id="performanceRange" aria-label="Период графика">
+                <button class="segment-btn perf-range-btn" data-range="today">Сегодня</button>
+                <button class="segment-btn perf-range-btn" data-range="yesterday">Вчера</button>
+                <button class="segment-btn perf-range-btn" data-range="week">Неделя</button>
+                <button class="segment-btn perf-range-btn" data-range="month">Месяц</button>
+                <button class="segment-btn perf-range-btn" data-range="all">Всё время</button>
+            </div>
+        </div>
+
+        <div class="performance-summary" id="performanceSummary">—</div>
+
+        <div class="performance-chart-wrap">
+            <svg id="performanceChart" viewBox="0 0 320 140" role="img" aria-label="График успеваемости"></svg>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats Section -->
+<div class="stats-section">
+    <div class="stats-section-header">
+        <span class="stats-section-title">Достижения</span>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-card-header">
+                <div class="stat-card-icon warning">
+                    <i data-lucide="zap" style="width:18px;height:18px"></i>
+                </div>
+                <div class="stat-card-trend neutral" id="xpTrend">
+                    <i data-lucide="minus" style="width:12px;height:12px"></i>
+                    <span>0</span>
+                </div>
+            </div>
+            <div class="stat-card-body">
+                <div class="stat-card-value" id="xpCount">0</div>
+                <div class="stat-card-label">Опыт XP</div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-card-header">
+                <div class="stat-card-icon error">
+                    <i data-lucide="flame" style="width:18px;height:18px"></i>
+                </div>
+            </div>
+            <div class="stat-card-body">
+                <div class="stat-card-value" id="streakCount">0</div>
+                <div class="stat-card-label">Серия правильных</div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-card-header">
+                <div class="stat-card-icon success">
+                    <i data-lucide="trophy" style="width:18px;height:18px"></i>
+                </div>
+            </div>
+            <div class="stat-card-body">
+                <div class="stat-card-value" id="bestStreakCount">0</div>
+                <div class="stat-card-label">Лучшая серия</div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-card-header">
+                <div class="stat-card-icon primary">
+                    <i data-lucide="calendar-check" style="width:18px;height:18px"></i>
+                </div>
+            </div>
+            <div class="stat-card-body">
+                <div class="stat-card-value" id="studyDaysCount">0</div>
+                <div class="stat-card-label">Дней обучения</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Session Stats -->
+<div class="stats-section">
+    <div class="stats-section-header">
+        <span class="stats-section-title">Сегодня</span>
+    </div>
+
+    <div class="session-stats-card">
+        <div class="session-stats-header">
+            <span class="session-stats-title">
+                <i data-lucide="calendar" style="width:16px;height:16px"></i>
+                Статистика сессии
+            </span>
+            <span class="session-stats-badge" id="sessionDate">Сегодня</span>
+        </div>
+        <div class="session-stats-grid">
+            <div class="session-stat">
+                <div class="session-stat-value" id="sessionWordsStudied">0</div>
+                <div class="session-stat-label">Изучено</div>
+            </div>
+            <div class="session-stat">
+                <div class="session-stat-value" id="sessionCorrect">0</div>
+                <div class="session-stat-label">Правильно</div>
+            </div>
+            <div class="session-stat">
+                <div class="session-stat-value" id="sessionAccuracy">0%</div>
+                <div class="session-stat-label">Точность</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Breakdown Section -->
+<div class="stats-section">
+    <div class="stats-section-header">
+        <span class="stats-section-title">Детализация</span>
+    </div>
+
+    <div class="stats-breakdown">
+        <div class="stats-breakdown-list">
+            <div class="breakdown-item">
+                <div class="breakdown-indicator learned"></div>
+                <div class="breakdown-info">
+                    <div class="breakdown-label">Выучено</div>
+                    <div class="breakdown-bar-container">
+                        <div class="breakdown-bar learned" id="learnedBar" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="breakdown-stats">
+                    <div class="breakdown-count" id="learnedLegendCount">0</div>
+                    <div class="breakdown-percent" id="learnedPercent">0%</div>
+                </div>
+            </div>
+
+            <div class="breakdown-item">
+                <div class="breakdown-indicator progress"></div>
+                <div class="breakdown-info">
+                    <div class="breakdown-label">В процессе</div>
+                    <div class="breakdown-bar-container">
+                        <div class="breakdown-bar progress" id="progressBar" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="breakdown-stats">
+                    <div class="breakdown-count" id="progressLegendCount">0</div>
+                    <div class="breakdown-percent" id="progressPercent">0%</div>
+                </div>
+            </div>
+
+            <div class="breakdown-item">
+                <div class="breakdown-indicator hard"></div>
+                <div class="breakdown-info">
+                    <div class="breakdown-label">Сложные</div>
+                    <div class="breakdown-bar-container">
+                        <div class="breakdown-bar hard" id="hardBar" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="breakdown-stats">
+                    <div class="breakdown-count" id="hardLegendCount">0</div>
+                    <div class="breakdown-percent" id="hardPercent">0%</div>
+                </div>
+            </div>
+
+            <div class="breakdown-item">
+                <div class="breakdown-indicator not-started"></div>
+                <div class="breakdown-info">
+                    <div class="breakdown-label">Не начато</div>
+                    <div class="breakdown-bar-container">
+                        <div class="breakdown-bar not-started" id="notStartedBar" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="breakdown-stats">
+                    <div class="breakdown-count" id="notStartedLegendCount">0</div>
+                    <div class="breakdown-percent" id="notStartedPercent">0%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+/* =========================================================
+   Focus Mode
+   - Hides non-essential UI with smooth transitions
+   - Keeps: main card/test, progress, bottom controls, exit button
+   ========================================================= */
+
+:root {
+    --focus-hide-duration: var(--transition-slow);
+    --focus-hide-ease: var(--ease-in-out);
+}
+
+/* Mark any block that should disappear in focus mode */
+.focus-hide {
+    opacity: 1;
+
+    /* IMPORTANT:
+       Keep transform NONE in normal mode.
+       Even transform: translateY(0) creates a stacking context and can put dropdown menus behind siblings. */
+    transform: none;
+
+    max-height: 1200px;
+
+    /* IMPORTANT:
+       Do NOT clip overflow in normal mode.
+       Otherwise dropdowns/menus inside (e.g. header dropbox) get cut off. */
+    overflow: visible;
+
+    visibility: visible;
+    pointer-events: auto;
+
+    transition:
+        opacity var(--focus-hide-duration) var(--focus-hide-ease),
+        transform var(--focus-hide-duration) var(--focus-hide-ease),
+        max-height var(--focus-hide-duration) var(--focus-hide-ease),
+        margin var(--focus-hide-duration) var(--focus-hide-ease),
+        padding var(--focus-hide-duration) var(--focus-hide-ease),
+        border-width var(--focus-hide-duration) var(--focus-hide-ease),
+        visibility 0s linear 0s;
+}
+
+/* Focus Mode ON */
+body.focus-mode .focus-hide {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+    max-height: 0;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    border-width: 0 !important;
+
+    /* In focus mode we DO want to clip while collapsing */
+    overflow: hidden;
+
+    pointer-events: none;
+    visibility: hidden;
+
+    /* keep fade/transform first, then actually hide to avoid tab-focus and clicks */
+    transition:
+        opacity var(--focus-hide-duration) var(--focus-hide-ease),
+        transform var(--focus-hide-duration) var(--focus-hide-ease),
+        max-height var(--focus-hide-duration) var(--focus-hide-ease),
+        margin var(--focus-hide-duration) var(--focus-hide-ease),
+        padding var(--focus-hide-duration) var(--focus-hide-ease),
+        border-width var(--focus-hide-duration) var(--focus-hide-ease),
+        visibility 0s linear var(--focus-hide-duration);
+}
+
+/* Also hide "non-focus" effects: toasts + confetti */
+body.focus-mode #toastContainer,
+body.focus-mode .toast-container {
+    display: none !important;
+}
+
+body.focus-mode #confetti-canvas {
+    display: none !important;
+}
+
+/* Slight layout/scale tweaks in focus mode */
+body.focus-mode .container {
+    max-width: 720px;
+}
+
+/* =========================================================
+   Flashcards: center the main card vertically in focus mode
+   ========================================================= */
+
+/* The flashcards screen is already flex-column; in focus mode center its content */
+body.focus-mode #flashcards.screen.active {
+    justify-content: center;
+    /* a little breathing room so it doesn't feel stuck to edges */
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+/* Make scaling feel natural when centered */
+body.focus-mode #flashcards .flashcard-container {
+    transform-origin: center center;
+}
+
+/* Make the main content feel more "expanded" */
+body.focus-mode .flashcard-container,
+body.focus-mode #testCardContainer {
+    transform: scale(1.02);
+    transform-origin: top center;
+    transition: transform var(--transition-slow) var(--ease-out);
+}
+
+body.focus-mode .flashcard,
+body.focus-mode .flashcard-face {
+    min-height: 360px;
+}
+
+/* Reduce motion support */
+body.reduce-motion .focus-hide,
+body.reduce-motion .flashcard-container,
+body.reduce-motion #testCardContainer {
+    transition: none !important;
+    transform: none !important;
+}

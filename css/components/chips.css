@@ -1,0 +1,46 @@
+/* Category Chips */
+.category-selector {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.category-chip {
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: var(--bg-secondary);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.category-chip:hover {
+    border-color: var(--accent);
+}
+
+.category-chip.active {
+    background: var(--accent);
+    color: white;
+}
+
+.chip-count {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+}
+
+.category-chip:not(.active) .chip-count {
+    background: var(--bg-primary);
+}
+
+.chip-icon {
+    width: 14px;
+    height: 14px;
+}

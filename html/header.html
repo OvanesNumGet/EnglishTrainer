@@ -1,0 +1,29 @@
+<div class="header focus-hide" id="mainHeader">
+    <div class="dropbox" id="datasetDropbox" data-select-id="datasetSelect">
+        <button type="button" class="dropbox-trigger" id="datasetDropboxTrigger" aria-haspopup="listbox"
+            aria-expanded="false">
+            <span class="dropbox-trigger-text" id="datasetDropboxText">English Words</span>
+            <i data-lucide="chevron-down" class="dropbox-trigger-icon"></i>
+        </button>
+        <div class="dropbox-menu" id="datasetDropboxMenu" role="listbox" tabindex="-1"></div>
+    </div>
+
+    <!-- Native select kept for existing logic (hidden by CSS) -->
+    <select id="datasetSelect" class="dropbox-native" aria-hidden="true" tabindex="-1">
+        <option value="verbs">Irregular Verbs</option>
+        <option value="text1">Text 1: The Environment</option>
+        <option value="text2">Text 2: Higher Ed UK/USA</option>
+        <option value="text3">Text 3: Higher Ed Russia</option>
+        <option value="text4">Text 4: Communication</option>
+        <option value="text5">Text 5: Pollution</option>
+    </select>
+
+    <div class="header-actions">
+        <button id="directionToggle" class="btn-icon" title="Сменить направление (RU ↔ EN)">
+            <i data-lucide="arrow-left-right" style="width:20px;height:20px"></i>
+        </button>
+        <button id="settingsToggle" class="btn-icon" title="Настройки">
+            <i data-lucide="settings" style="width:20px;height:20px"></i>
+        </button>
+    </div>
+</div>
