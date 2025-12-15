@@ -6,6 +6,10 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+html {
+    background: var(--bg-primary);
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg-primary);

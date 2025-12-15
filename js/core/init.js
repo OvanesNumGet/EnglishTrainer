@@ -3,6 +3,7 @@ import { attachEventListeners } from './events.js';
 import { loadDataset } from './dataset.js';
 // Updated import path
 import { initTheme, initSettingsUI, initDropboxUI, initConfirmDialogs, initFocusModeUI } from '../ui/index.js';
+import { initSystemBars } from '../ui/systemBars.js';
 import { state, setCurrentDataset, applyEffectiveSimpleMode } from '../state.js';
 
 export async function initApp() {
@@ -69,6 +70,10 @@ export async function initApp() {
     }
 
     initTheme();
+
+    // Keep status bar / system UI in sync with theme changes
+    initSystemBars();
+
     initSettingsUI();
 
     initDropboxUI();

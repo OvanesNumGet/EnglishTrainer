@@ -14,11 +14,39 @@
     <meta name="robots" content="index,follow">
 
     <!-- PWA / Mobile -->
-    <meta name="theme-color" content="#fafafa">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#fafafa" id="metaThemeColor">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="EnglishTrainer">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" id="metaAppleStatusBar">
+
+    <!-- Set status bar colors ASAP (before app JS runs) -->
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('theme') || 'system'; // 'light' | 'dark' | 'system'
+                var effective = saved;
+
+                if (saved === 'system') {
+                    var mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+                    effective = (mql && mql.matches) ? 'dark' : 'light';
+                }
+
+                var LIGHT_BG = '#fafafa';
+                var DARK_BG = '#0a0a0a';
+
+                var themeColor = (effective === 'dark') ? DARK_BG : LIGHT_BG;
+
+                var metaTheme = document.querySelector('meta[name="theme-color"]');
+                if (metaTheme) metaTheme.setAttribute('content', themeColor);
+
+                // iOS: only predefined styles; best effort at launch time
+                var metaApple = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
+                if (metaApple) metaApple.setAttribute('content', (effective === 'dark') ? 'black' : 'default');
+            } catch (e) { }
+        })();
+    </script>
 
     <!-- Icons -->
     <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
