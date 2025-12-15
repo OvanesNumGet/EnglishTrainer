@@ -201,7 +201,8 @@ const autoMovedForms = new Set();
  * This replaces pressing Enter to switch fields.
  */
 function maybeAutoFocusNextField(form) {
-    if (!isLiveCheckEnabled()) return;
+    // Decoupled from liveCheck (highlighting).
+    // Now purely based on correctness and the "Auto-Advance" setting.
     if (!state.settings?.autoAdvance) return;
 
     const checkBtn = document.getElementById('checkAnswer');
@@ -240,10 +241,11 @@ function maybeAutoFocusNextField(form) {
 
 /**
  * Auto-submit (call checkAnswer) when ALL required fields are exactly correct.
- * Controlled by setting "Подсветка и автопроверка".
+ * Controlled by setting "Авто-проверка" (Auto Check).
  */
 function maybeAutoSubmitIfAllCorrect() {
-    if (!isLiveCheckEnabled()) return;
+    // Check the new Auto-Check setting
+    if (state.settings?.autoCheck === false) return;
 
     const checkBtn = document.getElementById('checkAnswer');
     if (!isShown(checkBtn)) return; // already answered / showing result

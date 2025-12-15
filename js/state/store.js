@@ -95,6 +95,7 @@ export const state = {
         dailyGoal: readInt('setting_dailyGoal', 10) || 10,
         simpleMode: readJSON('setting_simpleMode', false) ?? false,
         autoAdvance: readJSON('setting_autoAdvance', true) ?? true,
+        autoCheck: readJSON('setting_autoCheck', true) ?? true,
         showHints: readJSON('setting_showHints', true) ?? true,
         soundEffects: readJSON('setting_soundEffects', true) ?? true,
         animSpeed: localStorage.getItem('setting_animSpeed') || 'normal',

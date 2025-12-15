@@ -28,6 +28,7 @@ export function resetProgress() {
         dailyGoal: localStorage.getItem('setting_dailyGoal'),
         simpleMode: localStorage.getItem('setting_simpleMode'),
         autoAdvance: localStorage.getItem('setting_autoAdvance'),
+        autoCheck: localStorage.getItem('setting_autoCheck'),
         liveCheck: localStorage.getItem('setting_liveCheck'),
         showHints: localStorage.getItem('setting_showHints'),
         soundEffects: localStorage.getItem('setting_soundEffects'),

@@ -75,6 +75,7 @@ function syncSettingsUI() {
     setChecked('settingReduceMotion', 'reduceMotion');
     setChecked('settingSimpleMode', 'simpleMode');
     setChecked('settingAutoAdvance', 'autoAdvance');
+    setChecked('settingAutoCheck', 'autoCheck');
     setChecked('settingLiveCheck', 'liveCheck');
     setChecked('settingShowHints', 'showHints');
     setChecked('settingSoundEffects', 'soundEffects');
@@ -134,6 +135,7 @@ function bindSettingsUIOnce() {
     bindCheckbox('settingReduceMotion', 'reduceMotion');
     bindCheckbox('settingSimpleMode', 'simpleMode');
     bindCheckbox('settingAutoAdvance', 'autoAdvance');
+    bindCheckbox('settingAutoCheck', 'autoCheck');
     bindCheckbox('settingLiveCheck', 'liveCheck');
     bindCheckbox('settingShowHints', 'showHints');
     bindCheckbox('settingSoundEffects', 'soundEffects');

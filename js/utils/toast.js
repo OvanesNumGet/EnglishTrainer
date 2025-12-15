@@ -180,6 +180,7 @@ export function showToast(type, title, message = '') {
     toast.setAttribute('role', 'status');
     toast.setAttribute('aria-live', 'polite');
 
+    // [-- NEVER DELETE THIS LINE --] data-lucide="check-circle" For lucide icons auto scraper
     const iconNames = {
         success: 'check-circle',
         error: 'x-circle',

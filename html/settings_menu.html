@@ -87,20 +87,39 @@
                 </div>
             </div>
 
-            <!-- Live highlight + auto-check -->
+            <!-- Live highlight -->
             <div class="settings-item">
                 <div class="settings-item-left">
                     <div class="settings-icon icon-green">
-                        <i data-lucide="zap" style="width:20px;height:20px"></i>
+                        <i data-lucide="highlighter" style="width:20px;height:20px"></i>
                     </div>
                     <div class="settings-text-col">
-                        <span>Подсветка и автопроверка</span>
-                        <small>Подсвечивать ввод и проверять автоматически</small>
+                        <span>Подсветка ввода</span>
+                        <small>Подсвечивать правильность ввода цветом</small>
                     </div>
                 </div>
                 <div class="settings-item-right">
                     <label class="switch-toggle">
                         <input type="checkbox" id="settingLiveCheck" checked>
+                        <span class="slider-toggle"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Auto-Check (New) -->
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <div class="settings-icon icon-blue">
+                        <i data-lucide="check-circle-2" style="width:20px;height:20px"></i>
+                    </div>
+                    <div class="settings-text-col">
+                        <span>Авто-проверка</span>
+                        <small>Проверять сразу, когда ответ введен верно</small>
+                    </div>
+                </div>
+                <div class="settings-item-right">
+                    <label class="switch-toggle">
+                        <input type="checkbox" id="settingAutoCheck" checked>
                         <span class="slider-toggle"></span>
                     </label>
                 </div>
