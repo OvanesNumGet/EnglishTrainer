@@ -257,7 +257,14 @@ export function showHint(form) {
 
     const inputId = 'test' + form.charAt(0).toUpperCase() + form.slice(1);
     const input = document.getElementById(inputId);
-    const correctAnswer = verb[form].split('/')[0].trim();
+
+    // Determine expected answer (Translation if reverse & infinitive field)
+    let rawAnswer = verb[form];
+    if (form === 'infinitive' && state.isReverse) {
+        rawAnswer = verb.translation;
+    }
+
+    const correctAnswer = (rawAnswer || '').split('/')[0].trim();
     const currentValue = input.value;
     const nextLetter = correctAnswer.substring(0, currentValue.length + 1);
 

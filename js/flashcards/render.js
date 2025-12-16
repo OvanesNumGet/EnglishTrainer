@@ -135,7 +135,9 @@ export function flipCard() {
 
         // Auto Speak Check
         if (state.settings.autoSpeak) {
-            speak(verb.infinitive);
+            // Speak the word on the back of the card
+            const text = state.isReverse ? verb.translation : verb.infinitive;
+            speak(text);
         }
     }
 }
